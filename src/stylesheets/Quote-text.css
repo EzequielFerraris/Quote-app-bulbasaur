@@ -1,0 +1,9 @@
+.text {
+    min-height: 200px;
+    width: 100%;
+    text-align: left;
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #B36C75;
+}

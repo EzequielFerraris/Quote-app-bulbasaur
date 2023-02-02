@@ -1,0 +1,23 @@
+
+.quote-button {
+    width: 50%;
+    height: auto;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    border: black;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    background: #89BA89;
+    color: #A83E47;
+    text-transform: capitalize;
+  }
+  
+  .quote-button:hover {
+      background: #44735C;
+      color: white;
+  }
