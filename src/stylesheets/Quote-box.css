@@ -1,0 +1,56 @@
+.quote-box {
+    max-width: 900px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 25px;
+    border: #B36C75 solid;
+}
+
+.text {
+    min-height: 200px;
+    width: 100%;
+    text-align: left;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    color: #B36C75;
+}
+
+.author {
+    min-height: 50px;
+    width: 100%;
+    text-align: right;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #A83E47;
+    
+}
+
+.quote-button {
+  width: 50%;
+  height: auto;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  border: black;
+  border-radius: 25px;
+  cursor: pointer;
+  outline: none;
+  background: #89BA89;
+  color: #A83E47;
+  text-transform: capitalize;
+}
+
+.quote-button:hover {
+    background: #44735C;
+    color: white;
+}
