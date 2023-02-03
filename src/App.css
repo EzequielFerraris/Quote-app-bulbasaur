@@ -1,17 +1,5 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  color: #45745C;
-  background-color: #96CBAF;
-  font-family: Lato, sans-serif;
-  margin-top: 20px;
-}
-
 .App {
+  margin-top: 90px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

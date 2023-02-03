@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../stylesheets/Quote-box.css';
 import Button from './Button.js'
 import QuoteText from './Quote-text';
@@ -7,24 +7,23 @@ import {AiOutlineTwitter} from 'react-icons/ai';
 
 function QuoteBox() {
 
+    const [state, setState] = useState();
     const [quote, setQuote] = useState("\"Bulba, bulba, bulbasaur!\"");
     const [author, setAuthor] = useState("Bulbasaur");
-    let DATA;
+    const URL = "https://type.fit/api/quotes";
 
-    useEffect(() => {
-        fetch("https://type.fit/api/quotes")
-          .then(function(response) {
-                return response.json();
-            })
-          .then(function(data) {
-            DATA = data;
-          })
-      });
+    const fetchAPI = async () => {
+        const response = await fetch(URL);
+        const responseJSON = await response.json();
+        setState(responseJSON);
+    };
+
+    useEffect(() => { fetchAPI() });
 
     const handleClick = () => {
-        let randomQuote = Math.floor(Math.random() * (DATA.length -1)) + 1;
-        setQuote(`"${DATA[randomQuote].text}"`);
-        setAuthor(DATA[randomQuote].author);
+        let randomQuote = Math.floor(Math.random() * (state.length -1)) + 1;
+        setQuote(`"${state[randomQuote].text}"`);
+        setAuthor(state[randomQuote].author);
         };
 
     return (
