@@ -15,6 +15,7 @@
     background: #89BA89;
     color: #A83E47;
     text-transform: capitalize;
+    user-select: none;
   }
   
   .quote-button:hover {

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../stylesheets/Quote-box.css';
 import Button from './Button.js'
-import { useState } from 'react';
 import QuoteText from './Quote-text';
 import Author from './Author';
 import {AiOutlineTwitter} from 'react-icons/ai';
@@ -10,19 +9,23 @@ function QuoteBox() {
 
     const [quote, setQuote] = useState("\"Bulba, bulba, bulbasaur!\"");
     const [author, setAuthor] = useState("Bulbasaur");
+    let DATA;
+
+    useEffect(() => {
+        fetch("https://type.fit/api/quotes")
+          .then(function(response) {
+                return response.json();
+            })
+          .then(function(data) {
+            DATA = data;
+          })
+      });
 
     const handleClick = () => {
-        fetch("https://type.fit/api/quotes")
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-        let fullQuotes = data;
-        let randomQuote = Math.floor(Math.random() * 1644) + 1;
-        setQuote(`"${fullQuotes[randomQuote].text}"`);
-        setAuthor(fullQuotes[randomQuote].author);
-        });
-      };
+        let randomQuote = Math.floor(Math.random() * (DATA.length -1)) + 1;
+        setQuote(`"${DATA[randomQuote].text}"`);
+        setAuthor(DATA[randomQuote].author);
+        };
 
     return (
         <div className='quote-box' id='quote-box'>
@@ -35,7 +38,7 @@ function QuoteBox() {
             <Button 
             handleClick={handleClick}
             />
-            <a id='tweet-quote' href='twitter.com/intent/tweet'><AiOutlineTwitter className='tweet-icono'/></a>
+            <a id='tweet-quote' href='twitter.com/intent/tweet' target='_top'><AiOutlineTwitter className='tweet-icono'/></a>
         </div>
     );
 };
